@@ -7,8 +7,10 @@ const port = 3001
 app.use(express.json())
 app.use(cors())
 
-const RoomBooking = require("./models/room");
+console.log("llllllllllllllllllllll")
 
+const RoomBooking = require("./models/room");
+console.log(RoomBooking)
 let MONGODB_URI = 'mongodb+srv://Huzaifa_Anjum:merapassword@cluster0.jcgr6fi.mongodb.net/Lab_DB'
 mongoose.connect(MONGODB_URI).then(()=>{
     console.log("connected")
@@ -17,7 +19,7 @@ console.log(err)
 })
 
 app.post('/rooms', async (req, res) => {
-    console.log("Hello");
+    // console.log("Hello");
     const { roomNumber, rollNumber, startTime, endTime } = req.body;
     
     try {
@@ -28,7 +30,7 @@ app.post('/rooms', async (req, res) => {
         startTime,
         endTime
       });
-  
+      console.log("XXX",newRoom)
       // Save the room to the database
       await newRoom.save();
   
@@ -41,7 +43,8 @@ app.post('/rooms', async (req, res) => {
   
 
 app.post('/room/book', async (req, res) => {
-    try {
+    
+  try {
       const { roomNumber, rollNumber, startTime, endTime } = req.body;
   
       // Create a new room booking instance
@@ -51,7 +54,7 @@ app.post('/room/book', async (req, res) => {
         startTime,
         endTime
       });
-      conslone.log("hello",roomBooking)
+      console.log("hello",roomBooking)
       // Save the room booking to the database
       await roomBooking.save();
   

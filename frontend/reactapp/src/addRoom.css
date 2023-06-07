@@ -1,0 +1,35 @@
+.room-form {
+    max-width: 400px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: rgb(185, 174, 197);
+    border-radius: 5px;
+  }
+  
+  .room-form label {
+    display: block;
+    margin-bottom: 5px;
+  }
+  
+  .room-form input[type="number"],
+  .room-form input[type="datetime-local"] {
+    width: 100%;
+    padding: 5px;
+    margin-bottom: 10px;
+  }
+  
+  .room-form button[type="submit"] {
+    display: block;
+    width: 100%;
+    padding: 10px;
+    background-color: #4caf50;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
+  .room-form button[type="submit"]:hover {
+    background-color: #45a049;
+  }
+  
