@@ -1,0 +1,38 @@
+.book-form {
+    max-width: 500px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #f2f2f2;
+    border-radius: 5px;
+  }
+  
+  .book-form h2 {
+    margin-top: 0;
+  }
+  
+  .book-form label {
+    display: block;
+    margin-bottom: 5px;
+  }
+  
+  .book-form input[type="text"] {
+    width: 100%;
+    padding: 5px;
+    margin-bottom: 10px;
+  }
+  
+  .book-form button[type="submit"] {
+    display: block;
+    width: 100%;
+    padding: 10px;
+    background-color: #4caf50;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
+  .book-form button[type="submit"]:hover {
+    background-color: #45a049;
+  }
+  

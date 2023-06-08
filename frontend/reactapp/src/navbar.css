@@ -3,6 +3,13 @@
     padding: 10px;
     display: flex;
     justify-content: space-between;
+    margin-bottom: 50px;
+    width: 100%;
+  }
+  
+  body{
+    margin: 0px;
+    padding: 0ch;
   }
   
   .navbar ul {
@@ -21,6 +28,7 @@
     color: white;
     padding: 5px 10px;
     border-radius: 5px;
+    font-weight: bold;
   }
   
   .navbar li a:hover {

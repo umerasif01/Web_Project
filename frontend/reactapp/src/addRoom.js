@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import './addRoom.css'
-
+import axios from "axios"
 const RoomForm = () => {
   const [roomNumber, setRoomNumber] = useState('');
   const [rollNumber, setRollNumber] = useState('');
@@ -19,6 +19,14 @@ const RoomForm = () => {
       startTime,
       endTime
     };
+
+    axios({
+      url:"http://localhost:3001/rooms",
+      method:"POST",
+      data:payload
+    }).then(res=>{
+      console.log(res.data)
+    }).catch(err=>console.log(err))
 
     // Make the API call to add the room
     // You can use libraries like Axios or fetch for making the API request
