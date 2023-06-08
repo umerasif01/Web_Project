@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import './manageBooks.css'
 import axios from "axios"
 
-const BookForm = () => {
+const UpdateBook = () => {
   const [bookTitle, setBookTitle] = useState('');
   const [author, setAuthor] = useState('');
   const [isbn, setIsbn] = useState('');
@@ -23,7 +23,7 @@ const BookForm = () => {
 
 
     axios({
-        url:"http://localhost:3001/addBook",
+        url:"http://localhost:3001/updateBook",
         method:"POST",
         data:book
       }).then(res=>{
@@ -37,7 +37,6 @@ const BookForm = () => {
     // Reset the form after submission
     setBookTitle('');
     setAuthor('');
-    setIsbn('');
     setDescription('');
   };
 
@@ -82,48 +81,18 @@ const BookForm = () => {
 
   return (
     <div className='book-form'>
-      <form onSubmit={handleSubmit}>
-        <h2>Add Book</h2>
-        <label htmlFor="bookTitle">Title:</label>
-        <input
-          type="text"
-          id="bookTitle"
-          value={bookTitle}
-          onChange={(e) => setBookTitle(e.target.value)}
-          required
-        />
-
-        <label htmlFor="author">Author:</label>
-        <input
-          type="text"
-          id="author"
-          value={author}
-          onChange={(e) => setAuthor(e.target.value)}
-          required
-        />
-
-        <label htmlFor="isbn">ISBN:</label>
-        <input
-          type="text"
-          id="isbn"
-          value={isbn}
-          onChange={(e) => setIsbn(e.target.value)}
-          required
-        />
-        <label htmlFor="description">Description:</label>
-        <input
-          type="text"
-          id="description"
-          value={description}
-          onChange={(e) => setDescription(e.target.value)}
-          required
-        />
-
-        <button type="submit">Add Book</button>
-      </form>
-
-      {/* <form onSubmit={handleUpdate}>
+    <form onSubmit={handleUpdate}>
         <h2>Update Book</h2>
+        <label htmlFor="isbn">ISBN:</label>
+        <input
+          type="text"
+          id="isbn"
+          value={isbn}
+          onChange={(e) => setIsbn(e.target.value)}
+          required
+        />
+        
+
         <label htmlFor="bookTitle">Title:</label>
         <input
           type="text"
@@ -142,14 +111,7 @@ const BookForm = () => {
           required
         />
 
-        <label htmlFor="isbn">ISBN:</label>
-        <input
-          type="text"
-          id="isbn"
-          value={isbn}
-          onChange={(e) => setIsbn(e.target.value)}
-          required
-        />
+        
         <label htmlFor="description">Description:</label>
         <input
           type="text"
@@ -160,12 +122,9 @@ const BookForm = () => {
         />
 
         <button type="submit">Update Book</button>
-      </form> */}
-
-
-      
-    </div>
+      </form>
+          </div>
   );
 };
 
-export default BookForm;
+export default UpdateBook;

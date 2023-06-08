@@ -140,6 +140,42 @@ app.put('/updateBook', async (req, res) => {
   }
 });
 
+// GET /books
+router.get('/', async (req, res) => {
+  try {
+    const { title, author, isbn, description } = req.query;
+
+    // Build the filter object based on the provided parameters
+    const filter = {};
+
+    if (title) {
+      filter.title = title;
+    }
+
+    if (author) {
+      filter.author = author;
+    }
+
+    if (isbn) {
+      filter.isbn = isbn;
+    }
+
+    if (description) {
+      filter.description = description;
+    }
+
+    // Retrieve the books based on the filter
+    const books = await Book.find(filter);
+
+    res.json({ books });
+  } catch (error) {
+    // Handle any errors that occur during the book retrieval process
+    console.error(error);
+    res.status(500).json({ message: 'Failed to retrieve books' });
+  }
+});
+
+module.exports = router;
 
 
 app.use(express.json())
